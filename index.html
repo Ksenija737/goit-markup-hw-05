@@ -44,7 +44,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-                <button type="button" class="button primary">Замовити послугу</button>
+                <button type="button" class="button primary" data-modal-open>Замовити послугу</button>
             </div>
         </section>
         <!--переваги-->
@@ -98,11 +98,16 @@
             <ul class="description-list list">
                 <li class="discription-item">
                     <img class="img" src="./images/img1.jpg" alt="Людина працює за комп'ютером" width="370" height="294">
+                    <p class="description-text">Десктопні додатки</p>
                 </li>
                 <li class="discription-item">
-                    <img class="img" src="./images/img2.jpg" alt="Людина із мобільним у руках за комп'ютером" width="370" height="294"></li>
+                    <img class="img" src="./images/img2.jpg" alt="Людина із мобільним у руках за комп'ютером" width="370" height="294">
+                    <p class="description-text">Мобільні додатки</p>
+                </li>
                 <li class="discription-item">
-                    <img class="img" src="./images/img3.jpg" alt="Людина вибирає на планшеті" width="370" height="294"></li>
+                    <img class="img" src="./images/img3.jpg" alt="Людина вибирає на планшеті" width="370" height="294">
+                    <p class="description-text">Дизайнерські рішення</p>
+                </li>
             </ul>
         </div>
     </section>
@@ -116,6 +121,7 @@
                     <img class="team-img img" src="./images/img4.jpg" alt="Усміхнений хлопець в окулярах" width="270" height="260">  
                     <h3 class="team-title">Ігор Дем'яненко</h3>
                     <p class="team-text">Product Designer</p>
+                    
                     <ul class="social-box list">
                         <li class="social-item" >
                     <a class="social-link link" href="#">
@@ -374,5 +380,15 @@
         </div>
     </div>
 </footer>
+<div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+        <button type="button" class="btn-close" data-modal-close>
+            <svg class="social-icon" width="18" height="18">
+                <use href="./images/icons.svg#icon-close"></use>
+            </svg>
+        </button>
+    </div>
+</div>
+<script src="./js/modal.js"></script>
 </body>
 </html>
