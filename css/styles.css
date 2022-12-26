@@ -530,9 +530,8 @@ border-bottom: 1px solid var(--border-head-color);
     background: rgba(33, 150, 243, 0.9);
 }
 
-.work-overlay:hover,
-.work-overlay:focus
-{
+.work-card .link:hover .work-overlay,
+.work-card .link:focus .work-overlay{
 transform: translateY(0);
 
 }
