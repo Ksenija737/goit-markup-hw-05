@@ -17,12 +17,15 @@
     --border-head-color:#ECECEC;
     --icon-color:#AFB1B8;
     --icon-close-color:#000000;
+    cubic-bezier(0.4, 0, 0.2, 1)
+
 }
 *,
 *::before,
 *::after {
 
     box-sizing: border-box;
+    
 }
 
 /* Стилі для обнулення верхніх відступів у елементів */
@@ -153,6 +156,8 @@ border-bottom: 1px solid var(--border-head-color);
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 
@@ -167,6 +172,7 @@ border-bottom: 1px solid var(--border-head-color);
     line-height: 1.14;
     letter-spacing: 0.02em;
     
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
@@ -383,7 +389,8 @@ border-bottom: 1px solid var(--border-head-color);
     fill: var(--icon-color);
     border-radius: 50%;
 
-
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:last-child {
@@ -426,6 +433,9 @@ border-bottom: 1px solid var(--border-head-color);
     border-radius: 4px;
     border: 1px solid var(--icon-color);
     color: var(--icon-color);
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 
@@ -501,6 +511,11 @@ border-bottom: 1px solid var(--border-head-color);
     color: var(--primary-text-color);
     line-height: 1.88;
 }
+
+.work-card .link{
+    box-shadow: none;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
 .work-card .link:hover,
 .work-card .link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -532,7 +547,8 @@ border-bottom: 1px solid var(--border-head-color);
 
 .work-card .link:hover .work-overlay,
 .work-card .link:focus .work-overlay{
-transform: translateY(0);
+
+    transform: translateY(0);
 
 }
 
@@ -544,27 +560,23 @@ transform: translateY(0);
     padding: 6px 22px;
     border: 1px solid transparent;
     border-radius: 4px;
-    color:var(--title-text-color);
-    background:var(--time-bg-color);
     font-family: inherit;
     font-weight: 500;
     font-size: inherit;
     line-height: 1.62;
     text-align: center;
     cursor: pointer;
-}
-
-.button.primary{
-    border-color: var(--accent-color);
-    color: var(--white-color);
-    background:var(--accent-color);
     
 }
 
 
 .button.secondary {
     color: var(--title-text-color);
-    background: var(--time-bg-color);
+    background-color: var(--time-bg-color);
+    box-shadow: none;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -577,19 +589,23 @@ transform: translateY(0);
     align-items: center;
     text-align: center;
     letter-spacing: 0.06em;
+    border-color: var(--accent-color);
+    color: var(--white-color);
+    background-color: var(--accent-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
-.button:hover,
-.button:focus {
-    color: var(--white-color);
-    background: var(--accent-bg-color);
+.hero .button:hover,
+.hero .button:focus {
+    background-color: var(--accent-bg-color);
 }
 
 .button.secondary:hover,
 .button.secondary:focus {
+    color: var(--white-color);
+    background-color: var(--accent-bg-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
@@ -612,6 +628,7 @@ transform: translateY(0);
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.03em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-item{
@@ -678,8 +695,10 @@ transform: translateY(0);
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
 
-    scale: 100%;
-    transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal{
@@ -692,12 +711,16 @@ transform: translateY(0);
     height: 100%;
     max-height: 581px;                                          
     background-color: var(--white-color);
-    
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
-
-.is-hidden{
-   scale: 0;
+.backdrop.is-hidden .modal{
+    transform: translate(-50%, -50%) scale(0.9);
+}
+.backdrop.is-hidden{
+   opacity: 0;
    visibility: hidden;
    pointer-events: none;
 }
